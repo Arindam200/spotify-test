@@ -1,4 +1,5 @@
 // spotifyAuth.js
+
 import SpotifyWebApi from "spotify-web-api-node";
 import dotenv from 'dotenv';
 dotenv.config();

@@ -1,4 +1,4 @@
-import spotifyApi from './spotifyAuth.js';
+import spotifyApi from "./spotifyauth.js"
 
 
 async function fetchSimilarArtistsAndTracks(mood, artists) {

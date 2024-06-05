@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import fetchSimilarArtistsAndTracks from './playlistGenerator.js';
-import generateAlbumArt from './albumArtGenerator.js';
 import arcjet,{ detectBot, shield, fixedWindow } from '@arcjet/node';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -57,9 +56,8 @@ app.post('/generate-playlist', async (req, res) => {
 
   try {
     const { similarArtists, tracks } = await fetchSimilarArtistsAndTracks(mood, artists);
-    const albumArt = await generateAlbumArt(similarArtists);
 
-    res.send({ playlist: tracks, albumArt });
+    res.send({ playlist: tracks });
   } catch (error) {
     res.status(500).send({ error: 'Failed to generate playlist' });
   }
